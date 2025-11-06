@@ -5,18 +5,35 @@ namespace VectorSystemApp
     // Базовий клас для системи з 2-х векторів
     class VectorSystem2
     {
-        protected double[] A = new double[2];
-        protected double[] B = new double[2];
+        protected double[] A;
+        protected double[] B;
 
+        // ✅ Конструктор ініціалізує масиви довжиною 2
+        public VectorSystem2()
+        {
+            A = new double[2];
+            B = new double[2];
+        }
+
+        // ✅ Читання з перевіркою через TryParse
         public virtual void SetVectors()
         {
             Console.WriteLine("Введіть координати вектора A (2 елементи):");
-            A[0] = Convert.ToDouble(Console.ReadLine());
-            A[1] = Convert.ToDouble(Console.ReadLine());
+            for (int i = 0; i < 2; i++)
+                A[i] = ReadDouble($"A[{i}] = ");
 
             Console.WriteLine("Введіть координати вектора B (2 елементи):");
-            B[0] = Convert.ToDouble(Console.ReadLine());
-            B[1] = Convert.ToDouble(Console.ReadLine());
+            for (int i = 0; i < 2; i++)
+                B[i] = ReadDouble($"B[{i}] = ");
+        }
+
+        protected double ReadDouble(string prompt)
+        {
+            double value;
+            Console.Write(prompt);
+            while (!double.TryParse(Console.ReadLine(), out value))
+                Console.Write("Некоректне число, повторіть: ");
+            return value;
         }
 
         public virtual void DisplayVectors()
@@ -27,7 +44,6 @@ namespace VectorSystemApp
 
         public virtual bool IsLinearlyIndependent()
         {
-            // Визначник 2x2: |A B| = A1*B2 - A2*B1
             double determinant = A[0] * B[1] - A[1] * B[0];
             return determinant != 0;
         }
@@ -36,21 +52,29 @@ namespace VectorSystemApp
     // Похідний клас для системи з 3-х векторів
     class VectorSystem3 : VectorSystem2
     {
-        private double[] C = new double[3];
+        private double[] C;
 
-        public override void SetVectors()
+        // ✅ Конструктор ініціалізує масиви довжиною 3
+        public VectorSystem3()
         {
             A = new double[3];
             B = new double[3];
+            C = new double[3];
+        }
 
+        public override void SetVectors()
+        {
             Console.WriteLine("Введіть координати вектора A (3 елементи):");
-            for (int i = 0; i < 3; i++) A[i] = Convert.ToDouble(Console.ReadLine());
+            for (int i = 0; i < 3; i++)
+                A[i] = ReadDouble($"A[{i}] = ");
 
             Console.WriteLine("Введіть координати вектора B (3 елементи):");
-            for (int i = 0; i < 3; i++) B[i] = Convert.ToDouble(Console.ReadLine());
+            for (int i = 0; i < 3; i++)
+                B[i] = ReadDouble($"B[{i}] = ");
 
             Console.WriteLine("Введіть координати вектора C (3 елементи):");
-            for (int i = 0; i < 3; i++) C[i] = Convert.ToDouble(Console.ReadLine());
+            for (int i = 0; i < 3; i++)
+                C[i] = ReadDouble($"C[{i}] = ");
         }
 
         public override void DisplayVectors()
@@ -62,7 +86,6 @@ namespace VectorSystemApp
 
         public override bool IsLinearlyIndependent()
         {
-            // Визначник 3x3: |A B C|
             double determinant =
                 A[0] * (B[1] * C[2] - B[2] * C[1]) -
                 A[1] * (B[0] * C[2] - B[2] * C[0]) +
