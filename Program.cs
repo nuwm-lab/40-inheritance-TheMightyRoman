@@ -6,7 +6,7 @@ namespace VectorSystemApp
     class VectorSystem2
     {
         protected double[] A;
-        protected double[] B;
+        protected double[] B; //abcd123123123123
 
         // ✅ Конструктор ініціалізує масиви довжиною 2
         public VectorSystem2()
