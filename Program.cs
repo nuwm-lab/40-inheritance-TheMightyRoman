@@ -54,7 +54,7 @@ namespace VectorSystemApp
     {
         private double[] C;
 
-        // ✅ Конструктор ініціалізує масиви довжиною 3
+        // ✅ Конструктор ініціалізує масиви довжиною 3 
         public VectorSystem3()
         {
             A = new double[3];
@@ -64,7 +64,7 @@ namespace VectorSystemApp
 
         public override void SetVectors()
         {
-            Console.WriteLine("Введіть координати вектора A (3 елементи):");
+            Console.WriteLine("Введіть координати вектора A (3 елементи):"); //asdasddaadsad
             for (int i = 0; i < 3; i++)
                 A[i] = ReadDouble($"A[{i}] = ");
 
