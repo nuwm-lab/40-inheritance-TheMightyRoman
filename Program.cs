@@ -58,7 +58,7 @@ namespace VectorSystemApp
         public VectorSystem3()
         {
             A = new double[3];
-            B = new double[3];
+            B = new double[3]; //abcdacd
             C = new double[3];
         }
 
