@@ -64,7 +64,7 @@ namespace VectorSystemApp
 
         public override void SetVectors()
         {
-            Console.WriteLine("Введіть координати вектора A (3 елементи):"); //asdasddaadsad
+            Console.WriteLine("Введіть координати вектора A (3 елементи):"); //asdasddaadsad123
             for (int i = 0; i < 3; i++)
                 A[i] = ReadDouble($"A[{i}] = ");
 
