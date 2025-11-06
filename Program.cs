@@ -99,7 +99,7 @@ namespace VectorSystemApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("=== Система 2-х векторів ===");
+            Console.WriteLine("=== Система 2-х vectors ===");
             VectorSystem2 system2 = new VectorSystem2();
             system2.SetVectors();
             system2.DisplayVectors();
